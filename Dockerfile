@@ -1,12 +1,12 @@
 FROM rust:bullseye AS builder
 
-ARG version=0.8.0
+ARG version=0.8.2
 
 RUN apt-get update && apt-get install -y libfontconfig1-dev libgraphite2-dev libharfbuzz-dev libicu-dev zlib1g-dev
 RUN cargo install tectonic ${version:+--vers "$version"}
 
 WORKDIR /app
-RUN wget 'https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/2.14/binaries/Linux/biber-linux_x86_64.tar.gz'
+RUN wget 'https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/2.16/binaries/Linux/biber-linux_x86_64.tar.gz'
 RUN tar -xvzf biber-linux_x86_64.tar.gz
 RUN chmod +x biber
 RUN cp biber /usr/bin/biber
