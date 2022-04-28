@@ -1,6 +1,6 @@
 FROM rust:bullseye AS builder
 
-ARG version=0.8.2
+ARG version=0.9.0
 
 RUN apt-get update && apt-get install -y libfontconfig1-dev libgraphite2-dev libharfbuzz-dev libicu-dev zlib1g-dev
 RUN cargo install tectonic ${version:+--vers "$version"}
