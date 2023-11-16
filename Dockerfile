@@ -23,7 +23,7 @@ RUN for f in *.tex; do tectonic $f; done
 # use a lightweight debian - no need for whole rust environment
 FROM mcr.microsoft.com/vscode/devcontainers/base:bookworm
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends libfontconfig1 libgraphite2-3 libharfbuzz0b libicu67 zlib1g libharfbuzz-icu0 libssl1.1 ca-certificates \
+    && apt-get install -y --no-install-recommends libfontconfig1 libgraphite2-3 libharfbuzz0b libicu72 zlib1g libharfbuzz-icu0 libssl3 ca-certificates \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN wget 'https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/2.17/binaries/Linux/biber-linux_x86_64.tar.gz'
